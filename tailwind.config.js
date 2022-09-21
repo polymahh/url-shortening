@@ -13,6 +13,7 @@ module.exports = {
         Primary:{
           Cyan: 'hsl(180, 66%, 49%)',
           DarkViolet: 'hsl(257, 27%, 26%)',
+          hoverp: '#9BE3E2'
         },
         Secondary:{
           sRed: 'hsl(0, 87%, 67%)'

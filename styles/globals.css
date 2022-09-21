@@ -2,15 +2,15 @@
 
 @tailwind base;
 .btn{
-  @apply py-4 px-12 text-lg font-bold font-poppins text-white bg-Primary-Cyan ;
+  @apply py-3 px-12 text-lg font-bold font-poppins text-white bg-Primary-Cyan hover:bg-Primary-hoverp;
 }
 
 .title{
-  @apply font-poppins font-bold text-xl text-Neutral-VeryDarkViolet;
+  @apply font-poppins font-bold text-2xl md:text-5xl text-Neutral-VeryDarkViolet my-4 text-center sm:text-left;
 }
 
 .txt{
-  @apply font-poppins font-medium text-lg text-Neutral-GrayishViolet;
+  @apply font-poppins font-medium text-lg text-Neutral-GrayishViolet text-center sm:text-left;
 }
 
 .hero::before {
@@ -25,6 +25,23 @@
   background-repeat: no-repeat;
   background-position: top 10% left 10%;
   background-size: contain;
+}
+
+span{
+  @apply text-Neutral-Gray font-poppins cursor-pointer hover:text-Primary-Cyan
+}
+
+.headerLink{
+  @apply text-sm font-poppins font-bold text-Neutral-GrayishViolet hover:text-Neutral-VeryDarkBlue cursor-pointer
+}
+
+.maxw{
+  @apply lg:max-w-[1100px] m-auto
+}
+
+.blackfilter{
+  color:black;
+  filter:invert(70%) sepia(13%) saturate(1920%) hue-rotate(132deg) brightness(95%) contrast(99%);
 }
 @tailwind components;
 @tailwind utilities;
