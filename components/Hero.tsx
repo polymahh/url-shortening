@@ -4,7 +4,7 @@ import illustration from '../public/illustration-working.svg';
 function Hero() {
   return (
     <div className="grid items-center sm:grid-cols-2 px-4 pb-[160px] relative  maxw">
-      <div className="-mr-36 mt-2 md:mt-[76px]   sm:col-start-2">
+      <div className="-mr-36 mt-2 sm:mt-[76px]   sm:col-start-2">
         <Image src={illustration} alt="illustration" objectFit="contain" />
       </div>
 
