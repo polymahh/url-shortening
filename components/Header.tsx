@@ -19,7 +19,7 @@ function Header() {
           <a className="headerLink">Resources</a>
         </div>
         <div className="sm:flex hidden">
-          <button className="btn text-sm px-6 py-2 bg-white text-Neutral-GrayishViolet rounded-full">
+          <button className="btn text-sm px-6 py-2 bg-white hover:bg-white hover:text-Neutral-VeryDarkViolet text-Neutral-GrayishViolet rounded-full">
             Login
           </button>
           <button className="btn text-sm px-6 py-2 rounded-full">

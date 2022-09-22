@@ -43,5 +43,13 @@ span{
   color:black;
   filter:invert(70%) sepia(13%) saturate(1920%) hue-rotate(132deg) brightness(95%) contrast(99%);
 }
+
+input{
+  @apply p-3 text-Neutral-GrayishViolet font-poppins w-full rounded-md focus:outline-none
+}
+
+.inputerr{
+  @apply border-[3px] border-Secondary-sRed/80 text-Secondary-sRed/50
+}
 @tailwind components;
 @tailwind utilities;
