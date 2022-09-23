@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+// import useLocalStorage from '../hooks/useLocalStorage';
 import Shortlink from './Shortlink';
 
 function Shortner() {
@@ -8,36 +9,34 @@ function Shortner() {
   const [err, setErr] = useState(false);
 
   useEffect(() => {
-    setNewLinks(JSON.parse(localStorage.getItem('links')) || []);
+    const savedValue = JSON.parse(localStorage.getItem('links'));
+    if (savedValue) setNewLinks(savedValue);
     console.log(newLinks);
   }, []);
+
+  useEffect(() => {
+    if (newLinks.length > 0) {
+      localStorage.setItem('links', JSON.stringify(newLinks));
+    }
+  }, [newLinks]);
 
   const getShortLink = async () => {
     try {
       const data = await axios.get(
         `https://api.shrtco.de/v2/shorten?url=${link}`
       );
-      const shortLink = {
+      const linkObj = {
         full: link,
         short: data.data.result.full_short_link,
       };
-      getStorage(shortLink);
+
+      if (!newLinks.find((item) => item.short === linkObj.short)) {
+        setNewLinks((curlinks) => [...curlinks, linkObj]);
+      }
     } catch (err) {
       console.log(err);
       setErr(true);
     }
-
-    // localStorage.clear();
-    // console.log(shortLink);
-  };
-
-  const getStorage = (shortLink) => {
-    if (!newLinks.find((item) => item.short === shortLink.short)) {
-      setNewLinks([...newLinks, shortLink]);
-      localStorage.setItem('links', JSON.stringify(newLinks));
-    }
-
-    console.log(localStorage.getItem('links'));
   };
 
   return (
@@ -56,7 +55,7 @@ function Shortner() {
           </em>
         )}
         <button
-          onClick={getShortLink}
+          onClick={() => getShortLink()}
           className="btn whitespace-nowrap py-3 rounded-md w-full sm:w-auto"
         >
           Shorten It!

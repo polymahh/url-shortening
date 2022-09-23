@@ -24,7 +24,7 @@ function Shortlink({ short, full }) {
           } rounded-md py-2 sm:ml-2 `}
           onClick={() => copyLink()}
         >
-          {copied ? 'copied!' : 'copy'}
+          {copied ? 'Copied!' : 'Copy'}
         </button>
       </div>
     </div>
