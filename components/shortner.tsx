@@ -55,7 +55,10 @@ function Shortner() {
           </em>
         )}
         <button
-          onClick={() => getShortLink()}
+          onClick={() => {
+            getShortLink();
+            setErr(false);
+          }}
           className="btn whitespace-nowrap py-3 rounded-md w-full sm:w-auto"
         >
           Shorten It!
